@@ -63,7 +63,7 @@ lyplg_type_lyb_size_integer(const struct lysc_type *type)
     return 0;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_store_int(const struct ly_ctx *ctx, const struct lysc_type *type, const void *value, uint32_t value_size_bits,
         uint32_t options, LY_VALUE_FORMAT format, void *UNUSED(prefix_data), uint32_t hints,
         const struct lysc_node *UNUSED(ctx_node), struct lyd_value *storage, struct lys_glob_unres *UNUSED(unres),
@@ -192,7 +192,7 @@ cleanup:
     return ret;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_compare_int(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1, const struct lyd_value *val2)
 {
     if (val1->realtype != val2->realtype) {
@@ -226,7 +226,7 @@ lyplg_type_compare_int(const struct ly_ctx *UNUSED(ctx), const struct lyd_value 
     return LY_SUCCESS;
 }
 
-LIBYANG_API_DEF int
+static int
 lyplg_type_sort_int(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1, const struct lyd_value *val2)
 {
     switch (val1->realtype->basetype) {
@@ -272,7 +272,7 @@ lyplg_type_sort_int(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *va
     return 0;
 }
 
-LIBYANG_API_DEF const void *
+static const void *
 lyplg_type_print_int(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *value, LY_VALUE_FORMAT format,
         void *UNUSED(prefix_data), ly_bool *dynamic, uint32_t *value_size_bits)
 {
@@ -328,7 +328,7 @@ lyplg_type_print_int(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *v
     return value->_canonical;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_store_uint(const struct ly_ctx *ctx, const struct lysc_type *type, const void *value, uint32_t value_size_bits,
         uint32_t options, LY_VALUE_FORMAT format, void *UNUSED(prefix_data), uint32_t hints,
         const struct lysc_node *UNUSED(ctx_node), struct lyd_value *storage, struct lys_glob_unres *UNUSED(unres),
@@ -437,7 +437,7 @@ cleanup:
     return ret;
 }
 
-LIBYANG_API_DEF LY_ERR
+static LY_ERR
 lyplg_type_compare_uint(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1, const struct lyd_value *val2)
 {
     switch (val1->realtype->basetype) {
@@ -467,7 +467,7 @@ lyplg_type_compare_uint(const struct ly_ctx *UNUSED(ctx), const struct lyd_value
     return LY_SUCCESS;
 }
 
-LIBYANG_API_DEF int
+static int
 lyplg_type_sort_uint(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *val1, const struct lyd_value *val2)
 {
     switch (val1->realtype->basetype) {
@@ -513,7 +513,7 @@ lyplg_type_sort_uint(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *v
     return 0;
 }
 
-LIBYANG_API_DEF const void *
+static const void *
 lyplg_type_print_uint(const struct ly_ctx *UNUSED(ctx), const struct lyd_value *value, LY_VALUE_FORMAT format,
         void *UNUSED(prefix_data), ly_bool *dynamic, uint32_t *value_size_bits)
 {
